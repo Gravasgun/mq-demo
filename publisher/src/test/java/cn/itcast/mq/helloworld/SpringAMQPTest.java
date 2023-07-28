@@ -16,7 +16,7 @@ public class SpringAMQPTest {
     @Test
     public void testAmqp() {
         String queueName = "simple.queue";
-        String message = "hello SpringAmqp11";
+        String message = "hello SpringAmqp22";
         rabbitTemplate.convertAndSend(queueName, message);
     }
 }
