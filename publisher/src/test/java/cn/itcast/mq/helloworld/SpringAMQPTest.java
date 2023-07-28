@@ -19,4 +19,21 @@ public class SpringAMQPTest {
         String message = "hello SpringAmqp22";
         rabbitTemplate.convertAndSend(queueName, message);
     }
+
+    @Test
+    public void testWorkQueue() throws InterruptedException {
+        String queueName = "simple.queue";
+        String message = "hello SpringAmqp--";
+        for (int i = 0; i < 50; i++) {
+            rabbitTemplate.convertAndSend(queueName, message + i);
+            Thread.sleep(20);
+        }
+    }
+
+    @Test
+    public void testFanoutExchange() {
+        String exchangeName = "itcast.fanoutExchange";
+        String message = "hello everyone";
+        rabbitTemplate.convertAndSend(exchangeName, "", message);
+    }
 }
