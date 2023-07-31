@@ -27,6 +27,12 @@ public class FanoutConfig {
         return new Queue("fanout.queue2");
     }
 
+    //队列3
+    @Bean
+    public Queue ObjectQueue() {
+        return new Queue("object.queue");
+    }
+
     //绑定关系1
     @Bean
     public Binding fanoutBinding1(Queue queue1, FanoutExchange fanoutExchange) {
